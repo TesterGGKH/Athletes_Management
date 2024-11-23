@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:9.1.0
+    container_name: athletes_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Xutchidi!2
+      MYSQL_DATABASE: athletes_app
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Xutchidi!2
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  mysql_data:
